@@ -1,3 +1,5 @@
 #!/bin/bash
 
-scp receiver* pair07:.
+DST=${1:-pair07}
+
+scp receiver* $DST:.
