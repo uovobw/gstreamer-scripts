@@ -4,7 +4,7 @@ DST=${1:-pair07}
 
 gst-launch-1.0 -v rtpbin name=rtpbin \
     v4l2src ! video/x-raw,width=320,height=240,framerate=10/1 ! autovideoconvert ! \
-    x264enc pass=cbr quantizer=20 bitrate=512 tune=zerolatency ! rtph264pay ! rtpbin.send_rtp_sink_0 \
+    x264enc pass=qual quantizer=20 tune=zerolatency ! rtph264pay ! rtpbin.send_rtp_sink_0 \
     rtpbin.send_rtp_src_0 ! udpsink host=$DST port=5000                            \
     rtpbin.send_rtcp_src_0 ! udpsink host=$DST port=5001 sync=false async=false    \
     udpsrc port=5005 ! rtpbin.recv_rtcp_sink_0                           \
