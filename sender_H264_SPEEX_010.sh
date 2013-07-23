@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DST=${1:-pair07}
+DST=$1
 
 gst-launch-0.10 -v gstrtpbin name=rtpbin \
     v4l2src ! video/x-raw-yuv,width=\(int\)320,height=\(int\)240,framerate=\(fraction\)30/1 ! ffmpegcolorspace ! \

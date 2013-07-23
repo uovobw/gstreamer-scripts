@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DST=${1:-pair07}
+DST=$1
 
 gst-launch-1.0 -v rtpbin name=rtpbin \
     v4l2src ! video/x-raw,width=320,height=240,framerate=10/1 ! autovideoconvert ! \
