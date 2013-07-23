@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DST=192.168.17.32
+DST=$1
 
 gst-launch-1.0 -v\
         rtpbin name=rtpbin                                          \
