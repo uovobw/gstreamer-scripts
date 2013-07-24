@@ -9,7 +9,7 @@ gst-launch-0.10 -v\
         rtpbin. ! rtph264depay ! ffdec_h264 ! xvimagesink sync=true async=true  \
         udpsrc port=5001 ! rtpbin.recv_rtcp_sink_0  \
         rtpbin.send_rtcp_src_0 ! udpsink port=5005 sync=false async=false        \
-        udpsrc caps="application/x-rtp,media=(string)audio, clock-rate=(int)16000, encoding-name=(string)SPEEX, encoding-params=(string)1, payload=(int)110" \
+        udpsrc caps="application/x-rtp,media=(string)audio, clock-rate=(int)90000, encoding-name=(string)MPA, encoding-params=(string)1" \
         port=5002 ! rtpbin.recv_rtp_sink_1                                \
         rtpbin. ! rtpmpadepay ! ffdec_mp2float ! audioresample ! audioconvert ! alsasink sync=true async=true \
         udpsrc port=5003 ! rtpbin.recv_rtcp_sink_1                               \

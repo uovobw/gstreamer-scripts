@@ -1,6 +1,6 @@
 set PATH=%PATH%;C:\QDesk\Bin\VirtualWaiterFrontDesk
 
-set DST=192.168.18.21
+set DST=192.168.219.102
 
 gst-launch-0.10.exe -v gstrtpbin name=rtpbin ^
     dshowvideosrc ! video/x-raw-yuv,width=(int)320,height=(int)240,framerate=(fraction)30/1 ! ffmpegcolorspace ! ^

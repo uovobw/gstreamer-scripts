@@ -1,6 +1,6 @@
-rem set PATH=%PATH%;C:\QDesk\Bin\VirtualWaiterFrontDesk
+set PATH=%PATH%;C:\QDesk\Bin\VirtualWaiterFrontDesk
 
-set DST=192.168.17.45
+set DST=192.168.219.102
 
 gst-launch-0.10.exe -v ^
         gstrtpbin name=rtpbin                                          ^
@@ -9,7 +9,7 @@ gst-launch-0.10.exe -v ^
         rtpbin. ! rtph264depay ! h264parse ! ffdec_h264  ! autovideosink sync=true async=true   ^
         udpsrc port=5001 ! rtpbin.recv_rtcp_sink_0  ^
         rtpbin.send_rtcp_src_0 ! udpsink host=%DST% port=5005 sync=false async=false^
-        udpsrc caps="application/x-rtp,media=(string)audio, clock-rate=(int)24000, encoding-name=(string)SPEEX, encoding-params=(string)1" ^
+        udpsrc caps="application/x-rtp,media=(string)audio, clock-rate=(int)90000, encoding-name=(string)MPA, encoding-params=(string)1" ^
         port=5002 ! rtpbin.recv_rtp_sink_1                                ^
         rtpbin. ! rtpmpadepay ! ffdec_mp2float ! audioresample ! audioconvert ! directsoundsink sync=true async=true^
         udpsrc port=5003 ! rtpbin.recv_rtcp_sink_1                               ^
