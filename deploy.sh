@@ -2,4 +2,4 @@
 
 DST=${1:-pair07}
 
-scp receiver* $DST:.
+scp sender* receiver* $DST:.
