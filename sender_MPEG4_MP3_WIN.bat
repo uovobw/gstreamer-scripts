@@ -8,7 +8,7 @@ gst-launch-0.10.exe -v gstrtpbin name=rtpbin ^
     rtpbin.send_rtp_src_0 ! udpsink host=%DST% port=5000 sync=false async=false ^
     rtpbin.send_rtcp_src_0 ! udpsink host=%DST% port=5001 sync=false async=false    ^
     udpsrc port=5005 ! rtpbin.recv_rtcp_sink_0                           ^
-    directsoundsrc ! audio/x-raw-int ! audiorate ! audioresample ! ^
+    directsoundsrc ! audioresample ! audio/x-raw-int,rate=(int)44100 ! ^
     lamemp3enc bitrate=128 target=0 quality=5 encoding-engine-quality=1 mono=true ! rtpmpapay ! rtpbin.send_rtp_sink_1                   ^
     rtpbin.send_rtp_src_1 ! udpsink host=%DST% port=5002 sync=false async=false ^
     rtpbin.send_rtcp_src_1 ! udpsink host=%DST% port=5003 sync=false async=false    ^
